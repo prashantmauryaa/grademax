@@ -1,0 +1,423 @@
+.heroSection {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    overflow: hidden;
+}
+
+.backgroundEffects {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.glow {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(79, 70, 229, 0.15), transparent);
+}
+
+.fadeBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, var(--background), transparent);
+}
+
+.gridPattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(128, 128, 128, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(128, 128, 128, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contentWrapper {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .contentWrapper {
+        text-align: left;
+    }
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(79, 70, 229, 0.3);
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.heading {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 1024px) {
+    .heading {
+        font-size: 4.5rem;
+    }
+}
+
+.gradientText {
+    background: linear-gradient(to right, #60a5fa, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+    .description {
+        margin-left: 0;
+    }
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .buttonGroup {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    .buttonGroup {
+        justify-content: flex-start;
+    }
+}
+
+.trustIndicators {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 1024px) {
+    .trustIndicators {
+        justify-content: flex-start;
+    }
+}
+
+.indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+}
+
+/* Visual Side */
+.visualWrapper {
+    position: relative;
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .visualWrapper {
+        display: block;
+    }
+}
+
+.visualContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+/* Rings for Card Background Animation */
+.animRing {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Inner Radar Scan */
+.ring1 {
+    width: 120%;
+    height: 120%;
+    border: 1px solid rgba(79, 70, 229, 0.1);
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 60%);
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.1);
+}
+
+.ring1::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0%, rgba(79, 70, 229, 0.4) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: spin 4s linear infinite;
+    opacity: 0.5;
+}
+
+/* Middle Orbit with Dashes */
+.ring2 {
+    width: 155%;
+    height: 155%;
+    border: 1px dashed rgba(34, 211, 238, 0.15);
+    animation: spin 20s linear infinite;
+}
+
+.ring2::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: #22d3ee;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #22d3ee;
+    transform: translateX(-50%);
+}
+
+/* Outer Slow Pulse */
+.ring3 {
+    width: 200%;
+    height: 200%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: pulse 6s ease-in-out infinite alternate;
+}
+
+.ring3::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    border-top-color: rgba(99, 102, 241, 0.3);
+    border-bottom-color: rgba(99, 102, 241, 0.3);
+    animation: spin 12s linear infinite reverse;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.98);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.02);
+        opacity: 0.7;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Fix for rotation origin needing to be center */
+.ring1::after,
+.ring3::after {
+    transform-origin: center;
+    /* Reset transform for children elements that spin independently */
+    animation: spinChild 4s linear infinite;
+}
+
+.ring3::after {
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+.ring2 {
+    animation: spinCenter 20s linear infinite;
+}
+
+@keyframes spinChild {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinCenter {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.cardMockup {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glassCard {
+    width: 350px;
+    background-color: rgba(18, 18, 20, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.roiBadge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+}
+
+.chartRow {
+    margin-bottom: 1rem;
+}
+
+.chartLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+}
+
+.barBg {
+    height: 0.5rem;
+    width: 100%;
+    background-color: #27272a;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.barFillBlue {
+    height: 100%;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    width: 85%;
+}
+
+.barFillRed {
+    height: 100%;
+    background: linear-gradient(to right, #ef4444, #f97316);
+    width: 45%;
+}
+
+.barFillGreen {
+    height: 100%;
+    background: linear-gradient(to right, #10b981, #22c55e);
+    width: 70%;
+}
+
+.suggestionBox {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #27272a;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.iconCircle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.suggestionText p {
+    color: white;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.suggestionText {
+    color: #9ca3af;
+    font-size: 0.75rem;
+}

@@ -1,0 +1,131 @@
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: var(--surface);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 2rem;
+    display: none;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        display: flex;
+    }
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.navItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.navItem.active {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.userProfile {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.userInfo h4 {
+    font-size: 0.875rem;
+    color: white;
+    margin-bottom: 0.125rem;
+}
+
+.userInfo p {
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+/* Mobile Nav - Bottom Bar */
+.mobileNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 0.75rem;
+    justify-content: space-around;
+    z-index: 50;
+}
+
+@media (min-width: 1024px) {
+    .mobileNav {
+        display: none;
+    }
+}
+
+.mobileNavItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.mobileNavItem.active {
+    color: var(--primary);
+}
