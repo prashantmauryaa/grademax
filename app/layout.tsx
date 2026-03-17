@@ -14,7 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "GradeMax AI | Ethical Academic Optimization",
-  description: "Maximize your CGPA with intelligent, data-driven academic strategy. No cheating, just optimization.",
+  description: "Maximize your CGPA with intelligent, data-driven academic strategy. No cheating, just optimizaation.",
 };
 
 export default function RootLayout({
